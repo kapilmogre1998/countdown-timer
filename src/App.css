@@ -1,0 +1,86 @@
+:root{
+  --timer-dimension: 400px;
+  --default-clr: #ffffff;
+}
+
+.app {
+  height: 100vh;
+  place-content: center;
+  width: 350px;
+  margin: auto;
+  box-sizing: border-box;
+}
+
+.timer-container{
+  width: var(--timer-dimension);
+  height: var(--timer-dimension);
+  border: 2px solid var(--default-clr);
+  display: grid;
+  place-content: center;
+  padding: 0px 5rem;
+  border-radius: 50%;
+}
+
+.input-container{
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 1rem;
+  justify-content: space-between;
+}
+
+.input-container > div{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+input {
+  width: 100%;
+  text-align: center;
+  padding: 8px;
+  outline: none;
+  border: 0px;
+  border-bottom: 1px solid var(--default-clr);
+  font-size: 18px;
+  color: white
+}
+
+.action-btns{
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  flex-shrink: 0;
+  margin-top: 3rem;
+  border: 1px solid var(--default-clr);
+  border-radius: 4px;
+  height: 34px;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:active{
+  transform: scale(0.98)
+}
+
+.play-icon{
+  color: red !important;
+}
+
+.sound-icon{
+  position: absolute;
+  top: 5%;
+  cursor: pointer;
+  right: 4%;
+  transform: scale(1.5);
+}

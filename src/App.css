@@ -1,24 +1,23 @@
 :root{
-  --timer-dimension: 400px;
-  --default-clr: #ffffff;
+  --timer-dimension: 430px;
 }
 
-.app {
+.container{
+  background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.timer-app {
   height: 100vh;
   place-content: center;
-  width: 350px;
+  width: 700px;
   margin: auto;
   box-sizing: border-box;
-}
-
-.timer-container{
-  width: var(--timer-dimension);
-  height: var(--timer-dimension);
-  border: 2px solid var(--default-clr);
-  display: grid;
-  place-content: center;
-  padding: 0px 5rem;
-  border-radius: 50%;
 }
 
 .input-container{
@@ -37,21 +36,24 @@
   gap: 0.5rem;
 }
 
-input {
-  width: 100%;
-  text-align: center;
-  padding: 8px;
+.input-time {
+  position: absolute;
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
   outline: none;
   border: 0px;
-  border-bottom: 1px solid var(--default-clr);
-  font-size: 18px;
-  color: white
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
 }
 
 .action-btns{
   display: flex;
-  gap: 1rem;
+  gap: 3rem;
   justify-content: center;
+  margin-top: 2rem;
 }
 
 button{
@@ -61,12 +63,13 @@ button{
   flex-grow: 1;
   flex-shrink: 0;
   margin-top: 3rem;
-  border: 1px solid var(--default-clr);
+  border: 0px;
   border-radius: 4px;
-  height: 34px;
+  height: 44px;
   font-weight: bold;
   font-size: 16px;
   cursor: pointer;
+  outline: none;
 }
 
 button:active{
@@ -83,4 +86,23 @@ button:active{
   cursor: pointer;
   right: 4%;
   transform: scale(1.5);
+}
+
+.progress-bar-container{
+  width: 164px;
+  height: 164px;
+  border-radius: 50%;
+  position: relative;
+}
+
+.input-time {
+  color: grey;
+  font-size: 60px;
+}
+
+@media screen and (max-width: 600px) {
+  .timer-app{
+    /* width: 100%; */
+    margin: auto;
+  }
 }

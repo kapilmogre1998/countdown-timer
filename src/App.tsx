@@ -4,8 +4,10 @@ import Timer from './Timer/Timer'
 function App() {
 
   return (
-    <div className='app' >
-        <Timer />
+    <div className='container' >
+      <div className='timer-app' >
+          <Timer />
+      </div>
     </div>
   )
 }

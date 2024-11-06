@@ -11,7 +11,7 @@ const ProgressBar:React.FC<ProgressBarProps>  = ({ progressbarclr = 'yellow', de
 
     return (
         <div className='progress-bar-container' style={{ background: `conic-gradient(${progressbarclr} ${degvalue}deg, white 0deg)` }} >
-            <input className="input-time" id='hour' type="text" value={timer.toString().padStart(2, '0')} onChange={onInputChange} />
+            <input className="input-time" id='hour' type="text" value={timer} onChange={onInputChange} />
         </div>
     )
 }

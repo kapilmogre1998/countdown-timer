@@ -47,6 +47,8 @@
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
+  color: grey;
+  font-size: 60px;
 }
 
 .action-btns{
@@ -95,14 +97,22 @@ button:active{
   position: relative;
 }
 
-.input-time {
-  color: grey;
-  font-size: 60px;
-}
-
 @media screen and (max-width: 600px) {
-  .timer-app{
-    /* width: 100%; */
-    margin: auto;
+  .timer-container{
+    padding: 20px 20px;
+  }
+  .progress-bar-container{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: relative;
+  }
+  .input-time{
+    width: 40px;
+    height: 40px;
+    font-size: 24px;
+  }
+  .action-btns{
+    gap: 1.5rem;
   }
 }

@@ -4,7 +4,7 @@ interface ProgressBarProps {
     progressbarclr?: string;
     degvalue?: number;
     timer?: number;
-    onInputChange?: funtion;
+    onInputChange?: React.ChangeEventHandler<HTMLInputElement>;
 }
 
 const ProgressBar:React.FC<ProgressBarProps>  = ({ progressbarclr = 'yellow', degvalue = 20, timer = '00', onInputChange = () => {} }) => {

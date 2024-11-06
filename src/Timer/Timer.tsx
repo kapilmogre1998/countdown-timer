@@ -110,17 +110,17 @@ const Timer = () => {
     return (
         <div className='timer-container' >
             <div className='sound-icon' onClick={() => setAlert(prev => !prev)} >
-               {alert ? <AiFillSound /> : <FaVolumeMute />}
+               {alert ? <AiFillSound style={{ color: '#23282f' }} /> : <FaVolumeMute style={{ color: '#23282f' }} />}
             </div>
             <div className='input-container' >
                 <div>
-                    <ProgressBar progressbarclr='red' degvalue={hour ? convertHourToDegree(hour) : 0} timer={hour} onInputChange={(event) =>  handleOnChange('HOUR', event)} />
+                    <ProgressBar progressbarclr='red' degvalue={hour && timerStatus ? convertHourToDegree(hour) : 0} timer={hour} onInputChange={(event: React.ChangeEvent<HTMLInputElement>) =>  handleOnChange('HOUR', event)} />
                 </div>
                 <div>
-                    <ProgressBar progressbarclr='yellow'  degvalue={minute ? convertMinuteToDegree(minute) : 0} timer={minute} onInputChange={(event) =>  handleOnChange('MIN', event)} />
+                    <ProgressBar progressbarclr='yellow'  degvalue={minute && timerStatus ? convertMinuteToDegree(minute) : 0} timer={minute} onInputChange={(event: React.ChangeEvent<HTMLInputElement>) =>  handleOnChange('MIN', event)} />
                 </div>
                 <div>
-                    <ProgressBar progressbarclr='green'  degvalue={seconds ? convertSecondsToDegree(seconds) : 0} timer={seconds} onInputChange={(event) =>  handleOnChange('SEC', event)} />
+                    <ProgressBar progressbarclr='green'  degvalue={seconds && timerStatus ? convertSecondsToDegree(seconds) : 0} timer={seconds} onInputChange={(event: React.ChangeEvent<HTMLInputElement>) =>  handleOnChange('SEC', event)} />
                 </div>
             </div>
 

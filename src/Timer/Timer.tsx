@@ -91,13 +91,24 @@ const Timer = () => {
         setTimerStatus(prev => !prev);
     }
 
-    const handleBlur: React.FocusEventHandler<HTMLInputElement> = (e, type:string) => {
-        const value = e.target.value;
+    const handleBlur: FocusEventHandler<HTMLInputElement> = (event) => {
+        const { value } = event.target;
         const intValue = parseInt(value);
         const result = isNaN(intValue) ? '00' : (intValue < 10 ? `0${intValue}` : `${intValue}`);
-        if(type == 'HOUR') setHour(result);
-        else if(type == 'MIN') setMinute(result);
-        else setSeconds(result);
+
+        switch (event.target.name as Inputtype) {
+            case 'HOUR':
+                setHour(result);
+                break;
+            case 'MIN':
+                setMinute(result);
+                break;
+            case 'SEC':
+                setSeconds(result);
+                break;
+            default:
+                break;
+        }
     };
 
     useEffect(() => {
@@ -123,13 +134,13 @@ const Timer = () => {
             </div>
             <div className='input-container' >
                 <div>
-                    <ProgressBar progressbarclr='red' degvalue={hour && timerStatus ? convertHourToDegree(hour) : 0} timer={hour} onInputChange={(event: React.ChangeEvent<HTMLInputElement>) => handleOnChange('HOUR', event)} onBlur={(e) => handleBlur(e, 'HOUR')} />
+                    <ProgressBar progressbarclr='red' degvalue={hour && timerStatus ? convertHourToDegree(hour) : 0} timer={hour} onInputChange={(event: React.ChangeEvent<HTMLInputElement>) => handleOnChange('HOUR', event)} onBlur={handleBlur} />
                 </div>
                 <div>
-                    <ProgressBar progressbarclr='yellow' degvalue={minute && timerStatus ? convertMinuteToDegree(minute) : 0} timer={minute} onInputChange={(event: React.ChangeEvent<HTMLInputElement>) => handleOnChange('MIN', event)} onBlur={(e) => handleBlur(e, 'MIN')} />
+                    <ProgressBar progressbarclr='yellow' degvalue={minute && timerStatus ? convertMinuteToDegree(minute) : 0} timer={minute} onInputChange={(event: React.ChangeEvent<HTMLInputElement>) => handleOnChange('MIN', event)} onBlur={handleBlur} />
                 </div>
                 <div>
-                    <ProgressBar progressbarclr='green' degvalue={seconds && timerStatus ? convertSecondsToDegree(seconds) : 0} timer={seconds} onInputChange={(event: React.ChangeEvent<HTMLInputElement>) => handleOnChange('SEC', event)} onBlur={(e) => handleBlur(e, 'SEC')} />
+                    <ProgressBar progressbarclr='green' degvalue={seconds && timerStatus ? convertSecondsToDegree(seconds) : 0} timer={seconds} onInputChange={(event: React.ChangeEvent<HTMLInputElement>) => handleOnChange('SEC', event)} onBlur={handleBlur} />
                 </div>
             </div>
 

@@ -91,7 +91,7 @@ const Timer = () => {
         setTimerStatus(prev => !prev);
     }
 
-    const handleBlur: FocusEventHandler<HTMLInputElement> = (event) => {
+    const handleBlur: React.FocusEventHandler<HTMLInputElement> = (event) => {
         const { value } = event.target;
         const intValue = parseInt(value);
         const result = isNaN(intValue) ? '00' : (intValue < 10 ? `0${intValue}` : `${intValue}`);
